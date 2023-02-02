@@ -34,10 +34,9 @@ export default function PostIndex() {
             {comments.map(comment => {
                 return(
                     <div className={`comment ${comment.id}`}>
-                    <h1>{comment.name}</h1>
-                    <p>{comment.email}</p>
-                    <p>{comment.body}</p>
-                    <Link to={`/comments/${comment.id}`}>read more</Link>   
+                   <h2>name : {comment.name}</h2>
+                    <h2>email : {comment.email}</h2>
+                    <Link className="btn btn-dark" to={`/comments/${comment.id}`}>read more</Link>   
                 </div>
                 )
             })}

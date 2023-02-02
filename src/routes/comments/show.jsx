@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 import { API_URL } from '../../config/api'
-import { Link , useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 export default function ShowComment() {
-    const {id} = useParams()
+    const { id } = useParams()
     const [comment, setComment] = useState({})
     const [error, setError] = useState(null)
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function ShowComment() {
                 }
                 throw new Error("error")
             })
-            .then(data => setTimeout(() => setComment({...data}), 3000))
+            .then(data => setTimeout(() => setComment({ ...data }), 3000))
             .catch(error => setError(error.massage))
     }, [])
 
@@ -26,20 +26,23 @@ export default function ShowComment() {
 
     if (!Object.keys(comment).length) {
         return (
-            <div>loading comment.....</div>
+            <div><h1>loading comment.....</h1></div>
         )
     }
 
     return (
-        <div className="comment">
-            <div className={`comment ${comment.id}`}>
-            <h1>{comment.name}</h1>
-                <p>{comment.email}</p>
-                <p>{comment.body}</p>
-               <Link to='/comments'>back to comments</Link>
-            </div>
-          
+
+        <div className={`comment ${comment.id}`}>
+            <p>postId : {comment.postId}</p>
+            <p>id : {comment.id}</p>
+            <h2>name : {comment.name}</h2>
+            <h2>email : {comment.email}</h2>
+            <p>body : {comment.body}</p>
+
+            <Link className="btn btn-dark" to='/comments'>back to comments</Link>
         </div>
+
+
     )
 }
 
