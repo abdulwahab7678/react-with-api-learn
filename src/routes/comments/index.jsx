@@ -25,7 +25,7 @@ export default function PostIndex() {
 
     if (!comments.length) {
         return (
-            <div>loading comments.....</div>
+            <div><h3>loading comments...</h3></div>
         )
     }
 
@@ -33,10 +33,10 @@ export default function PostIndex() {
         <div className="comments">
             {comments.map(comment => {
                 return(
-                    <div className={`comment ${comment.id}`}>
-                   <h2>name : {comment.name}</h2>
-                    <h2>email : {comment.email}</h2>
-                    <Link className="btn btn-dark" to={`/comments/${comment.id}`}>read more</Link>   
+                    <div className={`comment ${comment.id} my-4`}>
+                   <h4>name : {comment.name}</h4>
+                    <h4>email : {comment.email}</h4>
+                    <Link className="btn btn-dark " to={`/comments/${comment.id}`}>read more</Link>   
                 </div>
                 )
             })}

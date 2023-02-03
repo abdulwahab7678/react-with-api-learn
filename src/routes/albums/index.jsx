@@ -24,7 +24,7 @@ export default function AlbumsIndex() {
     }
     if (!albums.length) {
         return (
-            <div>loading albums...</div>
+            <div><h3>loading albums...</h3></div>
         )
     }
 
@@ -32,8 +32,8 @@ export default function AlbumsIndex() {
         <div className="albums">
             {albums.map((album) => {
                 return (
-                    <div className={`album ${album.id}`}>
-                        <h2>title :{album.title}</h2>
+                    <div className={`album ${album.id} my-4`}>
+                        <h4>title :{album.title}</h4>
                         <Link className="btn btn-dark" to={`/albums/${album.id}`}>read more</Link>
                     </div>
                 )

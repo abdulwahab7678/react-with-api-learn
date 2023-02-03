@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App'
+import Posts from './routes/posts/posts'
+import Post from './routes/posts/single-post'
+import PostComments from './routes/posts/post-comments'
 import Comments from './routes/comments/index'
 import Comment from './routes/comments/show'
 import Albums from './routes/albums/index'
@@ -15,6 +18,18 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
+      {
+        path: 'posts',
+        element: <Posts />
+      },
+      {
+        path :'posts/:id',
+        element:<Post />
+      },
+      {
+        path :'posts/:id/comments',
+        element:<PostComments />
+      },
       {
         path: 'comments',
         element: <Comments />

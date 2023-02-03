@@ -26,18 +26,18 @@ export default function ShowComment() {
 
     if (!Object.keys(comment).length) {
         return (
-            <div><h1>loading comment.....</h1></div>
+            <div><h3>loading comment...</h3></div>
         )
     }
 
     return (
 
         <div className={`comment ${comment.id}`}>
-            <p>postId : {comment.postId}</p>
-            <p>id : {comment.id}</p>
-            <h2>name : {comment.name}</h2>
-            <h2>email : {comment.email}</h2>
-            <p>body : {comment.body}</p>
+            <h6>postId : {comment.postId}</h6>
+            <h6>id : {comment.id}</h6>
+            <h4>name : {comment.name}</h4>
+            <h4>email : {comment.email}</h4>
+            <h6>body : {comment.body}</h6>
 
             <Link className="btn btn-dark" to='/comments'>back to comments</Link>
         </div>
