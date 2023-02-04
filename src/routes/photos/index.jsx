@@ -2,18 +2,18 @@ import { useState, useEffect } from "react"
 import { API_URL } from '../../config/api'
 import { Link } from "react-router-dom"
 
-export default function PostIndex() {
-    const [comments, setComments] = useState([])
+export default function PhotosIndex() {
+    const [photos, setPhotos] = useState([])
     const [error, setError] = useState(null)
     useEffect(() => {
-        const comments = fetch(`${API_URL}/comments`)
+        const photos = fetch(`${API_URL}/photos`)
             .then((res) => {
                 if (res.ok) {
                     return res.json()
                 }
                 throw new Error("error")
             })
-            .then(data => setTimeout(() => setComments([...data]), 3000))
+            .then(data => setTimeout(() => setPhotos([...data]), 3000))
             .catch(error => setError(error.massage))
     }, [])
 
@@ -23,20 +23,20 @@ export default function PostIndex() {
         )
     }
 
-    if (!comments.length) {
+    if (!photos.length) {
         return (
-            <div><h3>loading comments...</h3></div>
+            <div><h3>loading photos...</h3></div>
         )
     }
 
     return (
-        <div className="comments">
-            {comments.map(comment => {
+        <div className="photos">
+            {photos.map(photo => {
                 return(
-                    <div className={`comment ${comment.id} my-4`}>
-                   <h4>name : {comment.name}</h4>
-                    <h4>email : {comment.email}</h4>
-                    <Link className="btn btn-dark" to={`/comments/${comment.id}`}>read more</Link>   
+                    <div className={`photo ${photo.id} my-4`}>
+                    <h4>title : {photo.title}</h4>
+                     <h4>url : {photo.url}</h4>
+                    <Link className="btn btn-dark" to={`/photos/${photo.id}`}>read more</Link>   
                 </div>
                 )
             })}

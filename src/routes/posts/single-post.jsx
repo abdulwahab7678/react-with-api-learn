@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { API_URL } from '../../config/api'
 import { useParams, Link } from 'react-router-dom'
+
 export default function ShowPost() {
   const { id } = useParams()
   const [post, setPost] = useState({})

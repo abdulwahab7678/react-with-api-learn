@@ -25,17 +25,18 @@ export default function PostIndex() {
 
   if ( !posts.length ) {
     return (
-      <div>Loading Posts...</div>
+      <div><h4>Loading Posts...</h4></div>
     )
   }
 
   return (
     <div className="posts">
       {posts.map(post => (
-        <div className={`post ${post.id}`}>
-          <h1>{post.title}</h1>
-          <p>{post.body}</p>
-          <Link to={`/posts/${post.id}`}>Read More</Link>
+        <div className={`post my-4 ${post.id}`}>
+          <p>id : {post.id}</p>
+          <h3>title : {post.title}</h3>
+          <p>body : {post.body}</p>
+          <Link className="btn btn-dark" to={`/posts/${post.id}`}>Read More</Link>
         </div>
       ))}
     </div>

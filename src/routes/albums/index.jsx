@@ -33,8 +33,8 @@ export default function AlbumsIndex() {
             {albums.map((album) => {
                 return (
                     <div className={`album ${album.id} my-4`}>
+                        <h4>id :{album.id}</h4>
                         <h4>title :{album.title}</h4>
-                        <Link className="btn btn-dark" to={`/albums/${album.id}`}>read more</Link>
                     </div>
                 )
             })}

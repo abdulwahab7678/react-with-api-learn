@@ -4,17 +4,17 @@ import { Link, useParams } from "react-router-dom"
 
 export default function ShowComment() {
     const { id } = useParams()
-    const [comment, setComment] = useState({})
+    const [photo, setPhoto] = useState({})
     const [error, setError] = useState(null)
     useEffect(() => {
-        const comment = fetch(`${API_URL}/comments/${id}`)
+        const photo = fetch(`${API_URL}/photos/${id}`)
             .then((res) => {
                 if (res.ok) {
                     return res.json()
                 }
                 throw new Error("error")
             })
-            .then(data => setTimeout(() => setComment({ ...data }), 3000))
+            .then(data => setTimeout(() => setPhoto({ ...data }), 3000))
             .catch(error => setError(error.massage))
     }, [])
 
@@ -24,21 +24,21 @@ export default function ShowComment() {
         )
     }
 
-    if (!Object.keys(comment).length) {
+    if (!Object.keys(photo).length) {
         return (
-            <div><h3>loading comment...</h3></div>
+            <div><h3>loading photo...</h3></div>
         )
     }
 
     return (
 
-        <div className={`comment ${comment.id}`}>
-            <h6>id : {comment.id}</h6>
-            <h4>name : {comment.name}</h4>
-            <h4>email : {comment.email}</h4>
-            <h6>body : {comment.body}</h6>
+        <div className={`photo ${photo.id}`}>
+            <h6>id : {photo.id}</h6>
+            <h4>title : {photo.title}</h4>
+            <h4>url : {photo.url}</h4>
+            <h4>thumbnailUrl : {photo.thumbnailUrl}</h4>
 
-            <Link className="btn btn-dark" to='/comments'>back to comments</Link>
+            <Link className="btn btn-dark" to='/photos'>back to photos</Link>
         </div>
 
 

@@ -32,11 +32,13 @@ export default function PostComments() {
 
   return (
     <div className="PostComments">
-      {PostComments.map(post => (
-        <div className={`post ${post.id}`}>
-          <h1>{post.title}</h1>
-          <p>{post.body}</p>
-          <Link to={`/posts/${post.id}`}>Read More</Link>
+      {PostComments.map(PostComment => (
+        <div className={`PostComment my-4 ${PostComment.id}`}>
+          <p>id : {PostComment.id}</p>
+          <h4>name : {PostComment.name}</h4>
+          <h4>email : {PostComment.email}</h4>
+          <p>body : {PostComment.body}</p>
+          <Link className='btn btn-dark' to={`/posts/${PostComment.id}`}>back to post</Link>
         </div>
       ))}
     </div>

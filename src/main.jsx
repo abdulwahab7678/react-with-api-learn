@@ -9,7 +9,12 @@ import PostComments from './routes/posts/post-comments'
 import Comments from './routes/comments/index'
 import Comment from './routes/comments/show'
 import Albums from './routes/albums/index'
-import Album from './routes/albums/show'
+import Users from './routes/users/index'
+import User from './routes/users/show'
+import Photos from './routes/photos/index'
+import Photo from './routes/photos/show'
+import Todos from './routes/todos/index'
+
 // import './index.css'
 
 
@@ -43,8 +48,24 @@ const router = createBrowserRouter([
         element:<Albums />
       },
       {
-        path:'albums/:id',
-        element:<Album />
+        path:'users',
+        element:<Users />
+      },
+      {
+        path:'users/:id',
+        element:<User />
+      },
+      {
+        path:'todos',
+        element:<Todos />
+      },
+      {
+        path:'photos',
+        element:<Photos />
+      },
+      {
+        path:'photos/:id',
+        element:<Photo />
       }
     ]
   }
